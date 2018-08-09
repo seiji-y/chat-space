@@ -8,7 +8,7 @@
 
 ### Associations
 - has_many :members
-- has_many :groups
+- has_many :groups, through: :members
 - has_many :messages
 
 
@@ -29,12 +29,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|references :user|null: false, foreign_key: true|
 
 ### Associations
-- has_many : members
-- has_many : messages
-- belongs_to :user
+- has_many :members
+- has_many :messages
+- has_many :users, through: :members
 
 
 ## messages table
