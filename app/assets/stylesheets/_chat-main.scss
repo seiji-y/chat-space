@@ -1,7 +1,7 @@
 .chat-main {
   height: 100%;
   width: calc(100vw - 300px);
-  background-color: $white;
+  background-color: $main__background-color;
   float: left;
   &__header {
     height: 99px;
@@ -84,7 +84,7 @@
     box-sizing: border-box;
     &__textarea {
       width: calc(100% - 140px);
-      background-color: $white;
+      background-color: $main__form__text-area-background-color;
       margin: 20px 0;
       float: left;
     }
@@ -92,7 +92,7 @@
       height: 50px;
       line-height: 50px;
       color: $darkgray;
-      background-color: $white;
+      background-color: $main__form__text-area-background-color;
       margin: 20px 15px 0 0;
       padding-right: 10px;
       float: left;

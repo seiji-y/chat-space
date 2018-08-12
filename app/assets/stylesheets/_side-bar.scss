@@ -12,14 +12,14 @@
       width: 210px;
       font-size: 16px;
       font-weight: bold;
-      color: $white;
+      color: $side__font-color;
       line-height: 100px;
       float: left;
     }
     &__menu {
       width: 25px;
       line-height: 100px;
-      color: $white;
+      color: $side__font-color;
       float: left;
     }
   }
@@ -35,13 +35,13 @@
         font-size: 15px;
         line-height: 15px;
         padding: 20px 0 5px 0;
-        color: $white;
+        color: $side__font-color;
       }
       &__newest-message {
         font-size: 11px;
         line-height: 11px;
         padding: 0 0 20px 0;
-        color: $white;
+        color: $side__font-color;
       }
     }
   }
