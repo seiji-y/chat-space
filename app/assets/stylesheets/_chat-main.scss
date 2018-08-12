@@ -1,0 +1,110 @@
+.chat-main {
+  height: 100%;
+  width: calc(100vw - 300px);
+  background-color: $white;
+  float: left;
+  &__header {
+    height: 99px;
+    width: 100%;
+    padding: 0 40px;
+    border-bottom: solid 1px $main__header__border-color;
+    box-sizing: border-box;
+    &__group {
+      &__name {
+        font-size: 20px;
+        color: $main__header__group-name-font-color;
+        line-height: 20px;
+        margin: 35px 0 15px 0;
+        float: left;
+      }
+      &__edit-btn {
+        height: 38px;
+        color: $skyblue;
+        font-size: 16px;
+        line-height: 38px;
+        border: solid 1px $skyblue;
+        margin: 28px 0 0 0;
+        padding: 0 20px;
+        float: right;
+      }
+    }
+    &__members {
+      font-size: 12px;
+      color: $palegray;
+      line-height: 12px;
+      float: left;
+    }
+  }
+  &__body {
+      height: calc(100% - 190px);
+      padding: 26px 40px 0;
+      position: relative;
+      box-sizing: border-box;
+      overflow: scroll;
+    &__message {
+      width: 100%;
+      margin: 20px 0 0 0;
+      float: left;
+      &__name {
+        font-size: 16px;
+        font-weight: bold;
+        color: $darkgray;
+        line-height: 16px;
+        display: inline;
+        padding-right: 10px;
+        float: left;
+      }
+      &__timestamp {
+        font-size: 12px;
+        color: $palegray;
+        line-height: 12px;
+        float: left;
+        padding-top: 3px;
+      }
+      &__content {
+        font-size: 14px;
+        color: $darkgray;
+        line-height: 14px;
+        height: 100%;
+        float: left;
+        padding: 10px 0 20px 0;
+        clear: both;
+      }
+    }
+  }
+
+  &__form {
+    height: 90px;
+    width: calc(100vw - 300px);
+    background-color: $main__form__background-color;
+    padding: 0 40px;
+    position: absolute;
+    bottom: 0;
+    float: left;
+    box-sizing: border-box;
+    &__textarea {
+      width: calc(100% - 140px);
+      background-color: $white;
+      margin: 20px 0;
+      float: left;
+    }
+    &__img-attachment {
+      height: 50px;
+      line-height: 50px;
+      color: $darkgray;
+      background-color: $white;
+      margin: 20px 15px 0 0;
+      padding-right: 10px;
+      float: left;
+    }
+    &__send-btn {
+      color: white;
+      line-height: 50px;
+      background-color: $skyblue;
+      margin: 20px 0;
+      padding: 0 25px;
+      text-align: center;
+      float: right;
+    }
+  }
+}

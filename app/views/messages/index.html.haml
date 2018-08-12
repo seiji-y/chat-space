@@ -1,0 +1,114 @@
+.wrapper
+  .notice
+    .notice__description
+      = "チャットグループが作成されました"
+  .side-bar
+    .side-bar__user
+      .side-bar__user__name
+        = "Your Name."
+      %a.side-bar__user__menu{:href => "#"}
+        %i.fa.fa-pencil-square-o
+      %a.side-bar__user__menu{:href => "#"}
+        %i.fa.fa-cog
+    .side-bar__group-list
+      .side-bar__group-list__group
+        %a{:href => "#"}
+          .side-bar__group-list__group__name
+            = "Most Recent Created Group"
+          .side-bar__group-list__group__newest-message
+            = "Newest Message"
+      .side-bar__group-list__group
+        %a{:href => "#"}
+          .side-bar__group-list__group__name
+            = "2nd Group Name"
+          .side-bar__group-list__group__newest-message
+            = "No Message Yet"
+  .chat-main
+    .chat-main__header
+      .chat-main__header__group.clearfix
+        .chat-main__header__group__name
+          = "Current Group Name"
+        .chat-main__header__group__edit-btn
+          = "edit"
+      .chat-main__header__members
+        MEMBER:
+        %i Your Name, Her Name, His Name
+    .chat-main__body
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Member Name"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:36:54"
+        .chat-main__body__message__content
+          = "What you see is what you read."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Another Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:40:02"
+        .chat-main__body__message__content
+          = "Message is descending."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Other Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:45:55"
+        .chat-main__body__message__content
+          = "Scroll needed."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Alternative Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:48:49"
+        .chat-main__body__message__content
+          = "Write down as you like."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "One More Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:50:72"
+        .chat-main__body__message__content
+          = "Write down as you like."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Alternative Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:48:49"
+        .chat-main__body__message__content
+          = "Write down as you like."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Alternative Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:48:49"
+        .chat-main__body__message__content
+          = "Write down as you like."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Alternative Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:48:49"
+        .chat-main__body__message__content
+          = "Write down as you like."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Alternative Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:48:49"
+        .chat-main__body__message__content
+          = "Write down as you like."
+      .chat-main__body__message
+        .chat-main__body__message__name
+          = "Alternative Member"
+        .chat-main__body__message__timestamp
+          = "2018/08/11 18:48:49"
+        .chat-main__body__message__content
+          = "Write down as you like."
+    %form.chat-main__form{:action => "#", :method => "post"}
+      .chat-main__form__textarea
+        %input{:placeholder => "type a message", :type => "text"}
+      %a.chat-main__form__img-attachment{:href => "#"}
+        %i.fa.fa-image
+      .chat-main__form__send-btn
+        = "send"
+

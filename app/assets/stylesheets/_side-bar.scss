@@ -1,0 +1,48 @@
+.side-bar {
+  height: 100%;
+  width: 300px;
+  float: left;
+  &__user {
+    height: 100px;
+    width: 100%;
+    padding: 0 20px;
+    background-color: $side__user__background-color;
+    box-sizing: border-box;
+    &__name {
+      width: 210px;
+      font-size: 16px;
+      font-weight: bold;
+      color: $white;
+      line-height: 100px;
+      float: left;
+    }
+    &__menu {
+      width: 25px;
+      line-height: 100px;
+      color: $white;
+      float: left;
+    }
+  }
+  &__group-list {
+    height: calc(100vh - 100px);
+    width: 100%;
+    padding: 0 20px;
+    background-color: $side__group__background-color;
+    box-sizing: border-box;
+    overflow: scroll;
+    &__group {
+      &__name {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 20px 0 5px 0;
+        color: $white;
+      }
+      &__newest-message {
+        font-size: 11px;
+        line-height: 11px;
+        padding: 0 0 20px 0;
+        color: $white;
+      }
+    }
+  }
+}
