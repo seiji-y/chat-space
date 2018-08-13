@@ -3,7 +3,7 @@
     .side-bar__user
       .side-bar__user__name
         = current_user.name
-      %a.side-bar__user__menu{:href => "#"}
+      %a.side-bar__user__menu{:href => new_group_path}
         %i.fa.fa-pencil-square-o
       %a.side-bar__user__menu{:href => edit_user_path(current_user)}
         %i.fa.fa-cog
