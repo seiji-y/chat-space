@@ -1,11 +1,15 @@
 .notice {
   height: 24px;
   width: 100%;
-  background-color: $skyblue;
+  color: $white;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
   &__description {
-    font-size: 16px;
-    line-height: 24px;
-    color: $white;
-    text-align: center;
+  background-color: $skyblue;
+  }
+
+  &__alert {
+  background-color: $orange;
   }
 }
