@@ -8,15 +8,9 @@
       %i.fa.fa-cog
   .side-bar__group-list
     .side-bar__group-list__group
-      %a{:href => "#"}
-        .side-bar__group-list__group__name
-          = "Most Recent Created Group"
-        .side-bar__group-list__group__newest-message
-          = "Newest Message"
-    .side-bar__group-list__group
       - current_user.groups.each do |group|
         = link_to group_messages_path(group) do
           .side-bar__group-list__group__name
             = group.name
           .side-bar__group-list__group__newest-message
-            = "No Message Yet"
+            = group.show_newest_message
