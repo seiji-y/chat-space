@@ -69,6 +69,11 @@
         padding: 10px 0 20px 0;
         clear: both;
       }
+      &__content-img {
+        float: left;
+        padding: 10px 0 20px 0;
+        clear: both;
+      }
     }
   }
 
@@ -80,9 +85,13 @@
     float: left;
     box-sizing: border-box;
     &__textarea {
-      width: calc(100% - 140px);
+      width: calc(100% - 170px);
+      line-height: 50px;
+      height: 50px;
       background-color: $white;
       margin: 20px 0;
+      resize:none;
+      border: none;
       float: left;
     }
     &__img-attachment {
@@ -95,6 +104,7 @@
       float: left;
     }
     &__send-btn {
+      width: 10%;
       color: white;
       line-height: 50px;
       background-color: $skyblue;
