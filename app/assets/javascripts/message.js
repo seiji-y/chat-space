@@ -2,22 +2,16 @@ $(function(){
 
   function buildHTML(message){
     if (message){
-      var imageUrl = message.image;
+      var imageUrl = message.image != null ? `<div class='chat-main__body__message__content'><img src=${message.image}></div>` : '';
+      console.log(imageUrl);
       var html = `<div class='chat-main__body__message'>
                     <div class='chat-main__body__message__name'>${message.user_name}</div>
                     <div class='chat-main__body__message__timestamp'>${message.timestamp}</div>
-                    <div class='chat-main__body__message__content'>${message.body}</div>`
+                    <div class='chat-main__body__message__content'>${message.body}</div>
+                    ${imageUrl}
+                  </div>`
     }
-    if(imageUrl != null) {
-      var draw_html = html + `<div class='chat-main__body__message__content'>
-                              <img src="${imageUrl}" />
-                              </div>
-                            </div>`
-    }
-    else {
-      var draw_html = html + `</div>`
-    }
-    return draw_html;
+    return html;
   }
 
   function scrollToBottom(targetId){
