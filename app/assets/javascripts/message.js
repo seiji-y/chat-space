@@ -2,25 +2,26 @@ $(function(){
 
   function buildHTML(message){
     if (message){
-      var imageUrl = message.image.url;
+      var imageUrl = message.image;
+      var html = `<div class='chat-main__body__message'>
+                    <div class='chat-main__body__message__name'>${message.user_name}</div>
+                    <div class='chat-main__body__message__timestamp'>${message.timestamp}</div>
+                    <div class='chat-main__body__message__content'>${message.body}</div>`
     }
     if(imageUrl != null) {
-      var html = `<div class='chat-main__body__message'>
-                  <div class='chat-main__body__message__name'>${message.user_name}</div>
-                  <div class='chat-main__body__message__timestamp'>${message.timestamp}</div>
-                  <div class='chat-main__body__message__content'>${message.body}</div>
-                  <div class='chat-main__body__message__content'>
-                  <img src="${imageUrl}" /></div>
-                  </div>`
+      var draw_html = html + `<div class='chat-main__body__message__content'>
+                              <img src="${imageUrl}" />
+                              </div>
+                            </div>`
     }
     else {
-      var html = `<div class='chat-main__body__message'>
-                  <div class='chat-main__body__message__name'>${message.user_name}</div>
-                  <div class='chat-main__body__message__timestamp'>${message.timestamp}</div>
-                  <div class='chat-main__body__message__content'>${message.body}</div>
-                  </div>`
+      var draw_html = html + `</div>`
     }
-    return html;
+    return draw_html;
+  }
+
+  function scrollToBottom(targetId){
+    $(targetId).get(0).scrollTop = $(targetId).get(0).scrollHeight;
   }
 
   $('#new_message').on('submit', function(e){
@@ -38,11 +39,9 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $(".chat-main__body").append(html)
-      $("#message_body").val("");
-      $("#message_image").val("");
+      $('#new_message')[0].reset();
       $(".chat-main__form__send-btn").prop('disabled', false);
-      var newest = $("#message_top").get(0);
-      newest.scrollTop = newest.scrollHeight;
+      scrollToBottom("#message_top");
     })
     .fail(function(){
       alert("書き込みエラーです");
