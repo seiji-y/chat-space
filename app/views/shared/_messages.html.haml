@@ -1,10 +1,10 @@
-.chat-main__body
+#message_top.chat-main__body
   - @messages.each do |message|
     .chat-main__body__message
       .chat-main__body__message__name
         = message.user.name
       .chat-main__body__message__timestamp
-        = message.created_at
+        = message.posted_at
       .chat-main__body__message__content
         = message.body
       - if message.image?
