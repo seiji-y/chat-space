@@ -12,11 +12,10 @@ class UsersController < ApplicationController
   end
 
   def index
-    redirect_to root_path
   end
 
   def search
-   @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+   @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: current_user.id)
    respond_to do |format|
      format.html
      format.json
