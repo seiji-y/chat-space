@@ -3,7 +3,7 @@ $(function(){
   function buildHTML(message){
     if (message){
       var imageUrl = message.image != null ? `<div class='chat-main__body__message__content'><img src=${message.image}></div>` : '';
-      var html = `<div class='chat-main__body__message'>
+      var html = `<div class='chat-main__body__message' data-id=${message.id}>
                     <div class='chat-main__body__message__name'>${message.user_name}</div>
                     <div class='chat-main__body__message__timestamp'>${message.timestamp}</div>
                     <div class='chat-main__body__message__content'>${message.body}</div>
@@ -15,6 +15,26 @@ $(function(){
 
   function scrollToBottom(targetId){
     $(targetId).get(0).scrollTop = $(targetId).get(0).scrollHeight;
+  }
+
+  function autoUpdate(){
+    var message_id = $(".chat-main__body__message:last").data("id") || 0;
+    var url = window.location.pathname;
+    $.ajax({
+      url: url,
+      type: "GET",
+      data: {
+        id: message_id
+      },
+      dataType: "json"
+    })
+    .always(function(data){
+      data.forEach(function(value){
+      var html = buildHTML(value);
+      $(".chat-main__body").append(html);
+      scrollToBottom("#message_top");
+      });
+    });
   }
 
   $('#new_message').on('submit', function(e){
@@ -40,4 +60,9 @@ $(function(){
       alert("書き込みエラーです");
     })
   })
+
+  $(function(){
+    setInterval(autoUpdate, 5000);
+  });
+
 })

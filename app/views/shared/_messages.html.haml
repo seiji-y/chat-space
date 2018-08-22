@@ -1,6 +1,6 @@
 #message_top.chat-main__body
   - @messages.each do |message|
-    .chat-main__body__message
+    .chat-main__body__message{'data-id': message.id}
       .chat-main__body__message__name
         = message.user.name
       .chat-main__body__message__timestamp
