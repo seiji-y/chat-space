@@ -4,5 +4,6 @@ if @new_message.present?
     json.image new_message.image_url
     json.user_name  new_message.user.name
     json.timestamp  new_message.posted_at
+    json.id new_message.id
   end
 end

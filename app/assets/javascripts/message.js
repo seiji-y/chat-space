@@ -3,7 +3,7 @@ $(function(){
   function buildHTML(message){
     if (message){
       var imageUrl = message.image != null ? `<div class='chat-main__body__message__content'><img src=${message.image}></div>` : '';
-      var html = `<div class='chat-main__body__message'>
+      var html = `<div class='chat-main__body__message' data-id=${message.id}>
                     <div class='chat-main__body__message__name'>${message.user_name}</div>
                     <div class='chat-main__body__message__timestamp'>${message.timestamp}</div>
                     <div class='chat-main__body__message__content'>${message.body}</div>
@@ -18,11 +18,7 @@ $(function(){
   }
 
   function autoUpdate(){
-    if($(".chat-main__body__message")[0]){
-      var message_id = $(".chat-main__body__message:last").data("id");
-      } else {
-      var message_id = 0
-      }
+    var message_id = $(".chat-main__body__message:last").data("id") || 0;
     var url = window.location.pathname;
     $.ajax({
       url: url,
@@ -33,8 +29,8 @@ $(function(){
       dataType: "json"
     })
     .always(function(data){
-      $.each(data,function(index, data){
-        var html = buildHTML(data);
+      Object.values(data).forEach(function(value){
+      var html = buildHTML(value);
       $(".chat-main__body").append(html);
       scrollToBottom("#message_top");
       });
