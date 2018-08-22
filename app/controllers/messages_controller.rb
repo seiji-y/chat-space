@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user) # グループ所属の全メッセージ。includesはn+1問題用
     respond_to do |format|
       format.html
-      format.json { @new_messages = Message.where( "id > ?", params[:id]) }
+      format.json { @new_messages = @messages.where( "id > ?", params[:id]) }
     end
   end
 

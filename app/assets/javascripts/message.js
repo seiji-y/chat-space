@@ -29,7 +29,7 @@ $(function(){
       dataType: "json"
     })
     .always(function(data){
-      Object.values(data).forEach(function(value){
+      data.forEach(function(value){
       var html = buildHTML(value);
       $(".chat-main__body").append(html);
       scrollToBottom("#message_top");
