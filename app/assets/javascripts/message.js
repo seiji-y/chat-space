@@ -17,6 +17,30 @@ $(function(){
     $(targetId).get(0).scrollTop = $(targetId).get(0).scrollHeight;
   }
 
+  function autoUpdate(){
+    if($(".chat-main__body__message")[0]){
+      var message_id = $(".chat-main__body__message:last").data("id");
+      } else {
+      var message_id = 0
+      }
+    var url = window.location.pathname;
+    $.ajax({
+      url: url,
+      type: "GET",
+      data: {
+        id: message_id
+      },
+      dataType: "json"
+    })
+    .always(function(data){
+      $.each(data,function(index, data){
+        var html = buildHTML(data);
+      $(".chat-main__body").append(html);
+      scrollToBottom("#message_top");
+      });
+    });
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -40,4 +64,9 @@ $(function(){
       alert("書き込みエラーです");
     })
   })
+
+  $(function(){
+    setInterval(autoUpdate, 2000);
+  });
+
 })

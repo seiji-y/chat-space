@@ -1,0 +1,8 @@
+if @new_message.present?
+  json.array! @new_message do |new_message|
+    json.body new_message.body
+    json.image new_message.image_url
+    json.user_name  new_message.user.name
+    json.timestamp  new_message.posted_at
+  end
+end
