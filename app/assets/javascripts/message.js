@@ -66,7 +66,7 @@ $(function(){
   })
 
   $(function(){
-    setInterval(autoUpdate, 2000);
+    setInterval(autoUpdate, 5000);
   });
 
 })
