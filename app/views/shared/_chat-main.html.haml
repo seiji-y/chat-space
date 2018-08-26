@@ -4,10 +4,12 @@
       .chat-main__header__group__name
         = @group.name
       .chat-main__header__group__edit-btn
-        = link_to "Edit", root_path
+        = link_to "Edit", edit_group_path(@group)
     .chat-main__header__members
       MEMBER:
-      %i Your Name, Her Name, His Name
+      - @group.users.each do |user|
+        %i
+          = user.name
   = render "shared/messages"
   .chat-main__form
     = form_for [@group, @message] do |f|
